@@ -17,7 +17,8 @@ import Library from "./pages/Library";
 import About from "./pages/About";
 import Messages from "./pages/Messages";
 import Horoscope from "./pages/Horoscope";
-import VideoCall from './pages/Videocall';
+import VideoCall from "./pages/Videocall";
+import PanditAnalytics from "./pages/PanditAnalytics";
 
 const HIDE_NAVBAR_ROUTES = ["/login", "/register", "/admin"];
 
@@ -42,6 +43,7 @@ function Layout() {
         <Route path="/pandits/:id" element={<PanditDetail />} />
         <Route path="/library" element={<Library />} />
         <Route path="/call/:callId" element={<VideoCall />} />
+        <Route path="/pandit/analytics" element={<PanditAnalytics />} />
         <Route
           path="*"
           element={
