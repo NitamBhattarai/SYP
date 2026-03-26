@@ -266,7 +266,7 @@ export default function Login() {
             <button 
               className="btn btn-link text-decoration-none p-0"
               style={{ color: '#f97316', fontWeight: '600' }}
-            >
+             onclick = {() => navigate('/forgot-password')}>
               Forgot Password?
             </button>
           </div>
