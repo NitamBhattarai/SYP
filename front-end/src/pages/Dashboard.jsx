@@ -123,11 +123,12 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* Analytics Card — replaces old empty Payments card */}
         <div className="col-md-6 col-lg-3">
-          <div className="card border-0 shadow-sm rounded-4 p-4 h-100 text-center bg-white hover-up">
-            <i className="fas fa-wallet fs-2 text-orange mb-3"></i>
-            <h5 className="fw-bold serif-font">Payments</h5>
-            <p className="text-muted small mb-0">Withdraw your earnings</p>
+          <div className="card border-0 shadow-sm rounded-4 p-4 h-100 text-center bg-white hover-up" onClick={() => navigate('/pandit/analytics')}>
+            <i className="fas fa-chart-bar fs-2 text-orange mb-3"></i>
+            <h5 className="fw-bold serif-font">Analytics</h5>
+            <p className="text-muted small mb-0">View bookings, ratings & stats</p>
           </div>
         </div>
 
