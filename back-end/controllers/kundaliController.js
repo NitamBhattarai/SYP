@@ -48,7 +48,7 @@ export const getKundalis = async (req, res) => {
   }
 };
 
-// DELETE /api/kundali/:id — delete a kundali
+// DELETE /api/kundali/:id — delete a saved kundali
 export const deleteKundali = async (req, res) => {
   try {
     if (req.user.role !== 'user')
