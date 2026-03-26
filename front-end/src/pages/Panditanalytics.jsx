@@ -53,6 +53,8 @@ export default function PanditAnalytics() {
         const rRes = await fetch(`${BASE}/api/reviews/pandit/${panditId}`);
         const reviewData = await rRes.json();
         if (Array.isArray(reviewData)) {
+          
+          // Calculate average rating
           const avg = reviewData.length ? (reviewData.reduce((s, r) => s + r.rating, 0) / reviewData.length).toFixed(1) : 0;
           setReviews(reviewData.slice(0, 4));
           setStats(prev => ({ ...prev, avgRating: avg, totalReviews: reviewData.length }));
@@ -62,6 +64,7 @@ export default function PanditAnalytics() {
     finally { setLoading(false); }
   };
 
+// Helper function to format date in Nepali locale
   const formatDate = (d) => d ? new Date(d).toLocaleDateString('en-NP', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
 
   const STATUS_STYLE = {
