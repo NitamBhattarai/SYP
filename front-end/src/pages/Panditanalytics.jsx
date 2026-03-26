@@ -1,3 +1,4 @@
+// Import necessary React hooks and navigation utility
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -5,9 +6,11 @@ const BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 export default function PanditAnalytics() {
   const navigate = useNavigate();
+  // Retrieve auth token and user data from localStorage
   const token = localStorage.getItem('token');
   const panditData = JSON.parse(localStorage.getItem('userData') || '{}');
 
+  // State to store analytics statistics
   const [stats, setStats] = useState({
     totalBookings: 0, pending: 0, confirmed: 0, completed: 0, cancelled: 0,
     totalEarnings: 0, avgRating: 0, totalReviews: 0
@@ -21,6 +24,7 @@ export default function PanditAnalytics() {
     loadData();
   }, []);
 
+  // Function to fetch bookings and reviews data
   const loadData = async () => {
     try {
       const headers = { Authorization: `Bearer ${token}` };
@@ -34,6 +38,7 @@ export default function PanditAnalytics() {
         const confirmed = bookings.filter(b => b.status === 'confirmed').length;
         const completed = bookings.filter(b => b.status === 'completed').length;
         const cancelled = bookings.filter(b => b.status === 'cancelled').length;
+       // Calculate total earnings from completed bookings
         const totalEarnings = bookings
           .filter(b => b.status === 'completed')
           .reduce((sum, b) => sum + (parseFloat(b.price_per_ceremony) || 0), 0);
