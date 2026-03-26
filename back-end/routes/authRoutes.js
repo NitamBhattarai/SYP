@@ -7,8 +7,6 @@ import {
   panditRegister,
   panditLogin,
   changePassword,
-  forgotPassword,
-  resetPassword,
   adminLogin,
 } from "../controllers/authController.js";
 
@@ -31,8 +29,6 @@ router.post("/pandit/login", authLimiter, panditLogin);
 
 // Route for changing password (protected)
 router.post("/change-password", verifyToken, changePassword);
-router.post("/forgot-password", forgotPassword);
-router.post("/reset-password", resetPassword);
 router.post('/admin/login', authLimiter, adminLogin);
 
 export default router;
